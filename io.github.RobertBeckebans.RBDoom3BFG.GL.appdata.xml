@@ -14,7 +14,7 @@
     <p>
       RBDOOM-3-BFG is based on DOOM-3-BFG and the goal of this port is to bring DOOM-3-BFG up to latest technology
       in 2023 making it closer to Doom 2016 while still remaining a DOOM 3 port regarding the gameplay.
-      This version runs using OpenGL.
+      This version runs using X11 and OpenGL.
     </p>
   </description>
   <screenshots>
@@ -38,7 +38,7 @@
   <content_rating type="oars-1.1">
     <content_attribute id="violence-fantasy">intense</content_attribute>
     <content_attribute id="violence-realistic">intense</content_attribute>
-    <content_attribute id="violence-bloodshed">moderate</content_attribute>
+    <content_attribute id="violence-bloodshed">intense</content_attribute>
   </content_rating>
   <releases>
     <release version="v1.4.0" date="2022-03-06">
