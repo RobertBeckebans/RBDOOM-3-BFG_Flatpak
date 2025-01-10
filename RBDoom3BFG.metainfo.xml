@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>io.github.RobertBeckebans.RBDoom3BFG-GL</id>
-  <launchable type="desktop-id">io.github.RobertBeckebans.RBDoom3BFG-GL.desktop</launchable>
-  <name>RBDoom3BFG OpenGL</name>
-  <summary>RBDOOM-3-BFG is a modernization effort of DOOM-3-BFG</summary>
+  <id>io.github.RobertBeckebans.RBDoom3BFG</id>
+  <launchable type="desktop-id">io.github.RobertBeckebans.RBDoom3BFG.desktop</launchable>
+  <name>RBDoom3BFG</name>
+  <summary>A modernization effort of DOOM-3-BFG</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-only</project_license>
   <developer_name>RobertBeckebans</developer_name>
@@ -12,26 +12,24 @@
   <url type="help">https://github.com/RobertBeckebans/RBDOOM-3-BFG/#readme</url>
   <description>
     <p>
-      RBDOOM-3-BFG is based on DOOM-3-BFG and the goal of this port is to bring DOOM-3-BFG up to latest technology
-      in 2023 making it closer to Doom 2016 while still remaining a DOOM 3 port regarding the gameplay.
-      This version runs using X11 and OpenGL.
+      RBDOOM-3-BFG is based on DOOM-3-BFG and the goal of this port is to bring DOOM-3-BFG up to latest technology in 2023 making it closer to Doom 2016 while still remaining a DOOM 3 port regarding the gameplay.
     </p>
   </description>
   <screenshots>
     <screenshot type="default">
-      <image>https://camo.githubusercontent.com/0130a9cb36257cd10f6958683a36f52a89c3bf43ac247556d8873cd01aa2df14/68747470733a2f2f692e696d6775722e636f6d2f6e5357425355422e706e67</image>
+      <image>https://camo.githubusercontent.com/8c5ec742320e978305a5b50e9237e4b831a0df523cc7fa75770bb32aa3145b9f/68747470733a2f2f692e696d6775722e636f6d2f6e5357425355422e706e67</image>
     </screenshot>
     <screenshot>
-      <image>https://camo.githubusercontent.com/d8c5814599a39e2c92ca173327570387c47babcb1e6edd2ebf95262d3c3f8c20/68747470733a2f2f692e696d6775722e636f6d2f44715445627a552e6a7067</image>
+      <image>https://camo.githubusercontent.com/d7b3821ed6828c81fb3ca20c977f77096449b363fc6e60c9da27db2217f5df72/68747470733a2f2f692e696d6775722e636f6d2f44715445627a552e6a7067</image>
     </screenshot>
     <screenshot>
-      <image>https://camo.githubusercontent.com/1fd977c3755fa8fae540a02107fc173c03ea5f4df888d98938fe51b91fd72351/68747470733a2f2f6d656469612e6d6f6464622e636f6d2f696d616765732f6d6f64732f312f35302f34393233312f7262646f6f6d2d332d6266672d32303231303430392d3232313834322d3030312e706e67</image>
+      <image>https://camo.githubusercontent.com/06d1af2988ba12b0ccae260184e6368e29fbb97b4718a8847fc16ef51e8893d9/68747470733a2f2f6d656469612e6d6f6464622e636f6d2f696d616765732f6d6f64732f312f35302f34393233312f7262646f6f6d2d332d6266672d32303231303430392d3232313834322d3030312e706e67</image>
     </screenshot>
     <screenshot>
-      <image>https://camo.githubusercontent.com/c3bc989ee55e580819552b46766a38a6779c670331d9435d19f58bf0237d5574/68747470733a2f2f692e696d6775722e636f6d2f444b6f426150362e706e67</image>
+      <image>https://camo.githubusercontent.com/19613cbc00d03ec12221184e1594ab0de417eb8aa5b7df14858f0083afb4532b/68747470733a2f2f692e696d6775722e636f6d2f444b6f426150362e706e67</image>
     </screenshot>
     <screenshot>
-      <image>https://camo.githubusercontent.com/1c2d1dd01fbef5411d729141aba6c471193b47379722c4795334c9af9369bc0c/68747470733a2f2f692e696d6775722e636f6d2f597268683238672e706e67</image>
+      <image>https://camo.githubusercontent.com/d7f818c16074c9751baa961769504229f48390a2787e1b108dc6170397160b4b/68747470733a2f2f692e696d6775722e636f6d2f597268683238672e706e67</image>
     </screenshot>
   </screenshots>
   <update_contact>robert.beckebans_AT_gmail.com</update_contact>
@@ -41,8 +39,8 @@
     <content_attribute id="violence-bloodshed">intense</content_attribute>
   </content_rating>
   <releases>
-    <release version="v1.4.0" date="2022-03-06">
-      <url>https://github.com/RobertBeckebans/RBDOOM-3-BFG/releases/tag/v1.4.0</url>
+    <release version="v1.5.1" date="2023-05-23">
+      <url>https://github.com/RobertBeckebans/RBDOOM-3-BFG/releases/tag/v1.5.1</url>
     </release>
   </releases>
   <provides>

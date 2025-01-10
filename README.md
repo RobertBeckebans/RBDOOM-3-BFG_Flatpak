@@ -1,48 +1,32 @@
-<div>
-<img align="left" width="64" height="64" style="margin: 0px 15px 0px 0px;" src="RBDoom3BFG.128x128.png" alt="RBDoom3BFG Icon" />
-
-# RBDoom3BFG OpenGL on Flatpak
-&nbsp;
-</div>
+# RBDoom3BFG on Flatpak
 
 This project contains files to build [RBDoom3BFG](https://github.com/RobertBeckebans/RBDOOM-3-BFG) as a Flatpak app.
 
-## How to build the app
-
-### 1 - Prepare the environment
-Ensure you have the following commands installed on your system:
-- `git`
-- `flatpak`
-- `flatpak-builder`
-
-Ensure you have the `flathub` repo enabled:
-```shell
-$ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-```
-
-Clone this project on your computer:
-```shell
-$ git clone https://github.com/mbugni/RBDoom3BFGFlatpak.git
-```
-
-### 2 - Build and install the app
-From the project directory run the command:
-```shell
-$ flatpak-builder --user --verbose --install --install-deps-from=flathub --force-clean \
-  build io.github.RobertBeckebans.RBDoom3BFG-GL.yaml
-```
-
-See [flatpak documentation](https://docs.flatpak.org/) for more info.
-
-The first build can take a while (around 15 minutes or more), it depends on your machine performances. It compile and install the app, making it available for your user in the system.
-
-*NOTE:* if you want to install the app system wide, remove the `--user` option and the use `sudo` command.
-
-### 3 - Run the app
-You can run the RBDoom3BFG launching it from your favorite desktop, or manually by using the `flatpak` command:
-```shell
-$ flatpak run io.github.RobertBeckebans.RBDoom3BFG-GL
-```
-
 ## Copy game files
-Copy data files to folder `~/.var/app/io.github.RobertBeckebans.RBDoom3BFG-GL/data/rbdoom3bfg/base`.
+Copy data files to folder `~/.var/app/io.github.RobertBeckebans.RBDoom3BFG/data/rbdoom3bfg/base`.
+
+### This version (v1.5.1) doesn't work for me
+Moving to Vulkan version gives me this error:
+
+```
+----- R_InitOpenGL -----
+r_vidMode reset from 27 to 0.
+Initializing Vulkan subsystem
+Enabled Vulkan instance extensions:
+    VK_EXT_debug_utils
+    VK_KHR_xlib_surface
+    VK_KHR_surface
+    VK_KHR_get_physical_device_properties2
+Enabled Vulkan layers:
+Enabled Vulkan device extensions:
+    VK_KHR_fragment_shading_rate
+    VK_KHR_buffer_device_address
+    VK_EXT_descriptor_indexing
+    VK_KHR_maintenance1
+    VK_KHR_synchronization2
+    VK_KHR_swapchain
+Unknown command 'vid_restart'
+Sys_Error: Failed to create a Vulkan physical device, error code = VK_ERROR_FEATURE_NOT_PRESENT
+```
+
+But probably this issue is due to my poor Intel GPU.
