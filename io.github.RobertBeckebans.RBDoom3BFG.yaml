@@ -56,18 +56,24 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DFFMPEG=Off
       - -DBINKDEC=On
-      - -DNVRHI_WITH_VULKAN=On
-    build-options:
-      env:  
-        CXXFLAGS: -Wno-error=nonnull
+      - -DRETAIL=On
+      #- -DNVRHI_WITH_VULKAN=On
+      
+    #build-options:
+      #env:  
+      #  CXXFLAGS: -Wno-error=nonnull
     sources:
       - type: git
         url: https://github.com/RobertBeckebans/RBDOOM-3-BFG
-        tag: v1.5.1
+        commit: d3ebb1f6ac66a186d8fef505d28f52e750a46061
       - type: patch
         path: shader-compiler.patch
       - type: patch
-        path: shaders.patch
+        path: shader-make.patch
+      #- type: patch
+      #  path: shaders.patch
+    #build-dependencies:
+    #  - ncurses
     post-install:
       # Install executable
       - install -Dm 755 RBDoom3BFG /app/bin/RBDoom3BFG
