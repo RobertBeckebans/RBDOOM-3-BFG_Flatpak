@@ -26,8 +26,7 @@ $ git clone https://github.com/RobertBeckebans/RBDOOM-3-BFG_Flatpak.git
 ### 2 - Build and install the app
 From the project directory run the command:
 ```shell
-$ flatpak-builder --user --verbose --install --install-deps-from=flathub --force-clean \
-  build io.github.RobertBeckebans.RBDoom3BFG.yaml
+$ flatpak-builder --user --verbose --install --install-deps-from=flathub --force-clean build io.github.RobertBeckebans.RBDoom3BFG.yaml
 ```
 
 See [flatpak documentation](https://docs.flatpak.org/) for more info.
@@ -40,6 +39,12 @@ The first build can take a while (around 15 minutes or more), it depends on your
 You can run the RBDoom3BFG launching it from your favorite desktop, or manually by using the `flatpak` command:
 ```shell
 $ flatpak run io.github.RobertBeckebans.RBDoom3BFG
+```
+
+### 4 - Debug the app if necessary
+You can run the build using gdb:
+```shell
+$ flatpak run --command=gdb --devel io.github.RobertBeckebans.RBDoom3BFG -- /app/bin/RBDoom3BFG
 ```
 
 ## Copy game files
