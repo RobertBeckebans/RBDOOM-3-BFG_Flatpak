@@ -2,9 +2,12 @@ app-id: io.github.RobertBeckebans.RBDoom3BFG
 runtime: org.freedesktop.Platform
 runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.llvm18
 command: rbdoom3bfg.sh
 finish-args:
   - --device=all
+  - --socket=wayland
   - --socket=x11
   - --socket=pulseaudio
   - --share=ipc
@@ -17,8 +20,8 @@ cleanup:
   - /share/cmake
   - /share/man
 modules:
-  - shared-modules/glew/glew.json
-  - shared-modules/glu/glu-9.json
+  #- shared-modules/glew/glew.json
+  #- shared-modules/glu/glu-9.json
 
   # Build DirectXShaderCompiler from Git sources
   - name: directxshader-compiler-build
@@ -56,18 +59,27 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DFFMPEG=Off
       - -DBINKDEC=On
-      - -DNVRHI_WITH_VULKAN=On
+      - -DRETAIL=Off
+      - -DFLATPAK=On
+      - -DUSE_PRECOMPILED_HEADERS=Off
+      
     build-options:
       env:  
-        CXXFLAGS: -Wno-error=nonnull
+        #CC: clang
+        #CXX: clang++
+      #  CXXFLAGS: -Wno-error=nonnull
     sources:
       - type: git
         url: https://github.com/RobertBeckebans/RBDOOM-3-BFG
-        tag: v1.5.1
+        commit: 1d4846222d9c66362250653599586f8d920aac1d
       - type: patch
         path: shader-compiler.patch
       - type: patch
-        path: shaders.patch
+        path: shader-make.patch
+      #- type: patch
+      #  path: shaders.patch
+    #build-dependencies:
+    #  - ncurses
     post-install:
       # Install executable
       - install -Dm 755 RBDoom3BFG /app/bin/RBDoom3BFG
