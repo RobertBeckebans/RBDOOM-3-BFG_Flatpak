@@ -8,7 +8,7 @@ command: rbdoom3bfg.sh
 finish-args:
   - --device=all
   - --socket=wayland
-  - --socket=x11
+  - --socket=fallback-x11
   - --socket=pulseaudio
   - --share=ipc
   - --share=network
