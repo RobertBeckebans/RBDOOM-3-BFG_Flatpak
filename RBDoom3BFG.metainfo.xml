@@ -39,8 +39,8 @@
     <content_attribute id="violence-bloodshed">intense</content_attribute>
   </content_rating>
   <releases>
-    <release version="v1.5.1" date="2023-05-23">
-      <url>https://github.com/RobertBeckebans/RBDOOM-3-BFG/releases/tag/v1.5.1</url>
+    <release version="v1.6.0" date="2025-05-10">
+      <url>https://github.com/RobertBeckebans/RBDOOM-3-BFG/releases/tag/v1.6.0</url>
     </release>
   </releases>
   <provides>
