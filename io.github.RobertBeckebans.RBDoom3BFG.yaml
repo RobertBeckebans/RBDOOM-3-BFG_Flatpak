@@ -132,16 +132,44 @@ modules:
         path: shader-compiler.patch
       - type: patch
         path: shader-make.patch
-      #- type: patch
-      #  path: shaders.patch
-    #build-dependencies:
-    #  - ncurses
     post-install:
       # install executable
       - install -Dm 755 RBDoom3BFG /app/bin/RBDoom3BFG
       # install base files
       - mkdir -p /app/share/rbdoom3bfg/base
-      - cp --recursive ../../base/* --target-directory /app/share/rbdoom3bfg/base
+      - cp ../../base/default.cfg /app/share/rbdoom3bfg/base/default.cfg
+      - cp -R ../../base/renderprogs2 /app/share/rbdoom3bfg/base/
+
+  # module to install p7zip
+  - name: p7zip
+    buildsystem: simple
+    sources:
+      - type: archive
+        url: https://github.com/p7zip-project/p7zip/archive/refs/tags/v17.05.tar.gz
+        sha256: d2788f892571058c08d27095c22154579dfefb807ebe357d145ab2ddddefb1a6
+        
+    build-commands:
+      - make -j$(nproc) 7zr
+      - install -Dm 755 bin/7zr /app/bin/7zr
+      #- install -Dm 644 bin/7zCon.sfx /app/lib/7zCon.sfx
+      #- install -Dm 755 bin/7za /app/bin/7za
+      #- install -Dm 755 bin/7zr /app/bin/7zr
+
+  # install .pk4 files from Windows version
+  - name: rbdoom3bfg-assets
+    buildsystem: simple
+    #cleanup: ['*']  # Remove extracted files after installation
+    sources:
+      - type: file
+        url: https://github.com/RobertBeckebans/RBDOOM-3-BFG/releases/download/v1.6.0/RBDOOM-3-BFG-1.6.0.22-full-win64-20250510-git-ba39ba6.7z
+        sha256: f1b9a325cede2a281ece7d10a1a8bc48ce760d12ae23e37c62308631a886abae
+        dest: rbdoom-assets.7z
+    build-commands:
+      - mkdir assets_unpacked
+      - 7zr x rbdoom-assets.7z -oassets_unpacked
+      - install -Dm 644 assets_unpacked/base/_rbdoom_core.pk4 /app/share/rbdoom3bfg/base/_rbdoom_core.pk4
+      - install -Dm 644 assets_unpacked/base/_rbdoom_blood.pk4 /app/share/rbdoom3bfg/base/_rbdoom_blood.pk4
+      - install -Dm 644 assets_unpacked/base/_rbdoom_global_illumination_data.pk4 /app/share/rbdoom3bfg/base/_rbdoom_global_illumination_data.pk4
 
   # install desktop files
   - name: rbdoom3bfg-desktop
