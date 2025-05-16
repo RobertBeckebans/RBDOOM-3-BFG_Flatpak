@@ -36,7 +36,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/microsoft/DirectXShaderCompiler
-        tag: v1.7.2308
+        tag: v1.8.2405
     post-install:
       # Install binaries
       - install -Dm 755 bin/dxc /app/bin/dxc
@@ -46,61 +46,6 @@ modules:
       - install -D ../include/dxc/dxcerrors.h /app/include/dxc/dxcerrors.h
       - install -D ../include/dxc/dxcisense.h /app/include/dxc/dxcisense.h
       - install -D ../include/dxc/WinAdapter.h /app/include/dxc/WinAdapter.h
-
-  # build LLVM from Git sources to provide llvm-config
-  # - name: llvm
-  #   buildsystem: cmake-ninja
-  #   builddir: true
-  #   config-opts:
-  #     - -G Ninja
-  #     - -DLLVM_ENABLE_PROJECTS=clang;lld
-  #     - -DCMAKE_BUILD_TYPE=Release
-  #     - -DLLVM_ENABLE_ASSERTIONS=OFF
-  #     - -DLLVM_TARGETS_TO_BUILD=X86;ARM
-  #     - -DCMAKE_C_COMPILER=/usr/lib/sdk/llvm18/bin/clang
-  #     - -DCMAKE_CXX_COMPILER=/usr/lib/sdk/llvm18/bin/clang++
-  #     - -DLLVM_INSTALL_UTILS=ON
-  #   sources:
-  #     - type: git
-  #       url: https://github.com/llvm/llvm-project.git
-  #       tag: llvmorg-18.1.8
-  #   build-commands:
-  #     - ninja
-  #     - ninja install DESTDIR=/app
-  #   post-install:
-  #     - install -Dm755 bin/llvm-config /app/bin/llvm-config
-
-  # build ISPC from Git sources
-  # - name: ispc-build
-  #   buildsystem: cmake-ninja
-  #   build-options:
-  #     preppend-path: /usr/lib/sdk/llvm18/bin
-  #     prepend-ld-library-path: /usr/lib/sdk/llvm18/lib
-  #     env:
-  #       CC: /usr/lib/sdk/llvm18/bin/clang
-  #       CXX: /usr/lib/sdk/llvm18/bin/clang++
-  #       LD_LIBRARY_PATH: /usr/lib/sdk/llvm18/lib:/app/lib
-  #       PKG_CONFIG_PATH: /usr/lib/sdk/llvm18/lib/pkgconfig:/app/lib/pkgconfig:/app/share/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig
-  #   builddir: true
-  #   no-make-install: true
-  #   config-opts:
-  #     - -DCMAKE_BUILD_TYPE=Release
-  #     - -DISPC_BUILD_TESTS=Off
-  #     - -DISPC_BUILD_ISPC=On
-  #     - -DISPC_BUILD_ISPCTOOLS=On
-  #     - -DISPC_BUILD_ISPCTOOLS_TESTS=Off
-  #     - -DISPC_BUILD_ISPCTOOLS_BENCHMARKS=Off
-  #     - -DISPC_BUILD_ISPCTOOLS_BENCHMARKS_TESTS=Off
-  #     - -DCMAKE_C_COMPILER=/usr/lib/sdk/llvm18/bin/clang
-  #     - -DCMAKE_CXX_COMPILER=/usr/lib/sdk/llvm18/bin/clang++
-  #     - -DLLVM_CONFIG_EXECUTABLE=/usr/lib/sdk/llvm18/bin/llvm-config
-  #     #- -DLLVM_CONFIG=/app/bin/llvm-config
-  #   sources:
-  #     - type: git
-  #       url: https://github.com/ispc/ispc.git
-  #       tag: v1.26.0
-  #   install:
-  #     - install -Dm755 bin/ispc /app/bin/ispc
 
   # build application from Git sources
   - name: rbdoom3bfg-build
@@ -117,12 +62,6 @@ modules:
       - -DUSE_PRECOMPILED_HEADERS=Off
       - -DUSE_INTRINSICS_SSE=Off
       - -DUSE_INTRINSICS_NEON=Off
-      
-    build-options:
-      env:  
-        #CC: clang
-        #CXX: clang++
-      #  CXXFLAGS: -Wno-error=nonnull
     sources:
       - type: git
         url: https://github.com/RobertBeckebans/RBDOOM-3-BFG
@@ -147,10 +86,16 @@ modules:
       - type: archive
         url: https://github.com/p7zip-project/p7zip/archive/refs/tags/v17.05.tar.gz
         sha256: d2788f892571058c08d27095c22154579dfefb807ebe357d145ab2ddddefb1a6
-        
-    build-commands:
-      - make -j$(nproc) 7zr
-      - install -Dm 755 bin/7zr /app/bin/7zr
+    buildsystem: cmake-ninja
+    subdir: CPP/7zip/CMAKE/7zr
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+    no-make-install: true
+    post-install:
+      - install -Dm 755 7zr /app/bin/7zr
+    # build-commands:
+    #  - make -j$(nproc) 7zr
+    #  - install -Dm 755 bin/7zr /app/bin/7zr
       #- install -Dm 644 bin/7zCon.sfx /app/lib/7zCon.sfx
       #- install -Dm 755 bin/7za /app/bin/7za
       #- install -Dm 755 bin/7zr /app/bin/7zr
