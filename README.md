@@ -3,7 +3,7 @@
 This project contains files to build [RBDoom3BFG](https://github.com/RobertBeckebans/RBDOOM-3-BFG) as a Flatpak app.
 
 ## Copy game files
-Copy data files to folder `~/.var/app/io.github.RobertBeckebans.RBDoom3BFG/data/rbdoom3bfg/base`.
+Copy base/ folder either from Steam or GOG to `~/.var/app/io.github.RobertBeckebans.RBDoom3BFG/data/rbdoom3bfg/base/`.
 
 ## How to build the app
 
@@ -27,12 +27,12 @@ $ git clone https://github.com/RobertBeckebans/RBDOOM-3-BFG_Flatpak.git
 ### 2 - Build and install the app
 From the project directory run the command:
 ```shell
-$ flatpak-builder --user --verbose --install --install-deps-from=flathub --force-clean build io.github.RobertBeckebans.RBDoom3BFG.yaml
+$ FLATPAK_BUILDER_N_JOBS=$(nproc) flatpak-builder --user --verbose --install --install-deps-from=flathub --force-clean build io.github.RobertBeckebans.RBDoom3BFG.yaml
 ```
 
 See [flatpak documentation](https://docs.flatpak.org/) for more info.
 
-The first build can take a while (around 15 minutes or more), it depends on your machine performances. It compile and install the app, making it available for your user in the system.
+The first build can take a while (around 15 minutes or more), it depends on your hardware. It compiles and installs the app, making it available for your user in the system.
 
 *NOTE:* if you want to install the app system wide, remove the `--user` option and the use `sudo` command.
 
@@ -47,6 +47,3 @@ You can run the build using gdb:
 ```shell
 $ flatpak run --command=gdb --devel io.github.RobertBeckebans.RBDoom3BFG -- /app/bin/RBDoom3BFG
 ```
-
-## Copy game files
-Copy data files to folder `~/.var/app/io.github.RobertBeckebans.RBDoom3BFG/data/rbdoom3bfg/base`.
