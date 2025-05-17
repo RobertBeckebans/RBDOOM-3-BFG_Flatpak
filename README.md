@@ -10,6 +10,7 @@ Copy base/ folder either from Steam or GOG to `~/.var/app/io.github.RobertBeckeb
 ### 1 - Prepare the environment
 Ensure you have the following commands installed on your system:
 - `git`
+- `patch`
 - `flatpak`
 - `flatpak-builder`
 
