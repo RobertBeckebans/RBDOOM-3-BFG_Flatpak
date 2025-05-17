@@ -81,7 +81,6 @@ modules:
 
   # module to install p7zip
   - name: p7zip
-    buildsystem: simple
     sources:
       - type: archive
         url: https://github.com/p7zip-project/p7zip/archive/refs/tags/v17.05.tar.gz
@@ -93,12 +92,6 @@ modules:
     no-make-install: true
     post-install:
       - install -Dm 755 7zr /app/bin/7zr
-    # build-commands:
-    #  - make -j$(nproc) 7zr
-    #  - install -Dm 755 bin/7zr /app/bin/7zr
-      #- install -Dm 644 bin/7zCon.sfx /app/lib/7zCon.sfx
-      #- install -Dm 755 bin/7za /app/bin/7za
-      #- install -Dm 755 bin/7zr /app/bin/7zr
 
   # install .pk4 files from Windows version
   - name: rbdoom3bfg-assets
