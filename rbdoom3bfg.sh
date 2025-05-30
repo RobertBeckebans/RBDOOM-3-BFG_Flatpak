@@ -21,7 +21,7 @@ elif [ ! -f ${rbdoom3bfg_data_dir}/.setup ]
 then
     # Base folder exists, but it is not initialized
     echo "Copying data patches..."
-    cp --recursive /app/share/rbdoom3bfg/base/* --target-directory ${rbdoom3bfg_base_dir}
+    cp --recursive --force /app/share/rbdoom3bfg/base/* --target-directory ${rbdoom3bfg_base_dir}
     touch ${rbdoom3bfg_data_dir}/.setup
     echo "Data patches copied"
 fi

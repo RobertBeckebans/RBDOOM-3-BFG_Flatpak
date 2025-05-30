@@ -62,11 +62,19 @@ modules:
       - -DUSE_PRECOMPILED_HEADERS=Off
       - -DUSE_INTRINSICS_SSE=Off
       - -DUSE_INTRINSICS_NEON=Off
+    build-options:
+      arch:
+        x86_64:
+          config-opts:
+            - -DUSE_INTRINSICS_SSE=On
+        aarch64:
+          config-opts:
+            - -DUSE_INTRINSICS_SSE=Off
     sources:
       - type: git
         url: https://github.com/RobertBeckebans/RBDOOM-3-BFG
-        branch: flatpak
-        #commit: 1d4846222d9c66362250653599586f8d920aac1d
+        #branch: flatpak
+        commit: 77569aaba6431de733e58da9c616ce15f3c24335
       - type: patch
         path: shader-compiler.patch
       - type: patch
