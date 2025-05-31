@@ -12,7 +12,13 @@
   <url type="help">https://github.com/RobertBeckebans/RBDOOM-3-BFG/#readme</url>
   <description>
     <p>
-      RBDOOM-3-BFG is based on DOOM-3-BFG and the goal of this port is to bring DOOM-3-BFG up to latest technology in 2025 making it closer to Doom 2016 while still remaining a DOOM 3 port regarding the gameplay.
+      Experience the ultimate modernization of DOOM-3-BFG with RBDOOM-3-BFG!
+
+      This source port brings cutting-edge technology to the classic, featuring PSX-style and 8/16-bit retro rendering modes, immersive CRT filters, enhanced global illumination PBR lighting, and realistic blood effects. 
+      Designed for both retro enthusiasts and casual gamers, RBDOOM-3-BFG delivers a complete overhaul while staying true to the original gameplay.
+      This version reintroduces the iconic classic flashlight as an option, letting you experience the suspense and atmosphere of DOOM 3 just as you remember it.
+      
+      Now requiring Vulkan and supporting Wayland, it's the definitive way to relive DOOM 3 with a fresh, modern twist.
     </p>
   </description>
   <screenshots>
@@ -20,16 +26,16 @@
       <image>https://camo.githubusercontent.com/8c5ec742320e978305a5b50e9237e4b831a0df523cc7fa75770bb32aa3145b9f/68747470733a2f2f692e696d6775722e636f6d2f6e5357425355422e706e67</image>
     </screenshot>
     <screenshot>
-      <image>https://camo.githubusercontent.com/d7b3821ed6828c81fb3ca20c977f77096449b363fc6e60c9da27db2217f5df72/68747470733a2f2f692e696d6775722e636f6d2f44715445627a552e6a7067</image>
+      <image>https://camo.githubusercontent.com/100fe10b41779aaa178de258d1c54ecdd5b1d4ecb3b7e7ab86e552b4b92e39ff/68747470733a2f2f692e696d6775722e636f6d2f475044326149722e706e67</image>
     </screenshot>
     <screenshot>
-      <image>https://camo.githubusercontent.com/06d1af2988ba12b0ccae260184e6368e29fbb97b4718a8847fc16ef51e8893d9/68747470733a2f2f6d656469612e6d6f6464622e636f6d2f696d616765732f6d6f64732f312f35302f34393233312f7262646f6f6d2d332d6266672d32303231303430392d3232313834322d3030312e706e67</image>
+      <image>https://camo.githubusercontent.com/0061b703de7fc1d716e7fef8d1a6d8f5f4b555c11d0cd89e33fe03d4b5e589ef/68747470733a2f2f692e696d6775722e636f6d2f42644e494538482e706e67</image>
     </screenshot>
     <screenshot>
-      <image>https://camo.githubusercontent.com/19613cbc00d03ec12221184e1594ab0de417eb8aa5b7df14858f0083afb4532b/68747470733a2f2f692e696d6775722e636f6d2f444b6f426150362e706e67</image>
+      <image>https://camo.githubusercontent.com/246c2fbb143bbd406b55dd86c28559ad486e95cfde12797b0b8e1155b079fcfb/68747470733a2f2f692e696d6775722e636f6d2f74476f63654e502e706e67</image>
     </screenshot>
     <screenshot>
-      <image>https://camo.githubusercontent.com/d7f818c16074c9751baa961769504229f48390a2787e1b108dc6170397160b4b/68747470733a2f2f692e696d6775722e636f6d2f597268683238672e706e67</image>
+      <image>https://camo.githubusercontent.com/e67b48d482b168008ebed00b7aaee96cabc9e32ca09409a8fe5e006e7d7237a3/68747470733a2f2f692e696d6775722e636f6d2f353643547a31772e6a706567</image>
     </screenshot>
   </screenshots>
   <update_contact>robert.beckebans_AT_gmail.com</update_contact>
