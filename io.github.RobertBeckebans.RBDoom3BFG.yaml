@@ -13,6 +13,7 @@ finish-args:
   - --share=ipc
   - --share=network
 cleanup:
+  - /bin/7zr
   - /include
   - /lib/*.a
   - /lib/*.la
@@ -74,7 +75,7 @@ modules:
       - type: git
         url: https://github.com/RobertBeckebans/RBDOOM-3-BFG
         #branch: flatpak
-        commit: 77569aaba6431de733e58da9c616ce15f3c24335
+        commit: c1721f01531bf7cb7c048053d0ae2c2f6beb101a
       - type: patch
         path: shader-compiler.patch
       - type: patch
@@ -86,6 +87,10 @@ modules:
       - mkdir -p /app/share/rbdoom3bfg/base
       - cp ../../base/default.cfg /app/share/rbdoom3bfg/base/default.cfg
       - cp -R ../../base/renderprogs2 /app/share/rbdoom3bfg/base/
+      # install desktop files
+      - install -Dm 644 ../../install/desktop/RBDoom3BFG.metainfo.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
+      - install -Dm 644 ../../install/desktop/RBDoom3BFG.desktop /app/share/applications/${FLATPAK_ID}.desktop
+      - install -Dm 644 ../../install/desktop/RBDoom3BFG.png /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png
 
   # module to install p7zip
   - name: p7zip
@@ -117,20 +122,11 @@ modules:
       - install -Dm 644 assets_unpacked/base/_rbdoom_blood.pk4 /app/share/rbdoom3bfg/base/_rbdoom_blood.pk4
       - install -Dm 644 assets_unpacked/base/_rbdoom_global_illumination_data.pk4 /app/share/rbdoom3bfg/base/_rbdoom_global_illumination_data.pk4
 
-  # install desktop files
-  - name: rbdoom3bfg-desktop
+  # install app launcher
+  - name: rbdoom3bfg-launcher
     buildsystem: simple
     sources:
       - type: file
-        path: RBDoom3BFG.metainfo.xml
-      - type: file
-        path: RBDoom3BFG.desktop
-      - type: file
-        path: RBDoom3BFG.128x128.png
-      - type: file
         path: rbdoom3bfg.sh
     build-commands:
-      - install -Dm 644 RBDoom3BFG.metainfo.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
-      - install -Dm 644 RBDoom3BFG.desktop /app/share/applications/${FLATPAK_ID}.desktop
-      - install -Dm 644 RBDoom3BFG.128x128.png /app/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
       - install -Dm 755 rbdoom3bfg.sh -t /app/bin
