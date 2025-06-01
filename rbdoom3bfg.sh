@@ -17,13 +17,21 @@ then
     --no-wrap --text="The /base game folder must be copied to:\n${rbdoom3bfg_base_dir}" \
     --ok-label "Close"
     exit 1
-elif [ ! -f ${rbdoom3bfg_data_dir}/.setup ]
+fi
+
+# Check version matching
+rbdoom3bfg_setup_commit_file=${rbdoom3bfg_data_dir}/.setup
+rbdoom3bfg_setup_commit=$(cat $rbdoom3bfg_setup_commit_file)
+rbdoom3bfg_app_commit=$(grep app-commit /.flatpak-info | cut -d "=" -f 2)
+if [ "$rbdoom3bfg_setup_commit" != "$rbdoom3bfg_app_commit" ];
 then
-    # Base folder exists, but it is not initialized
-    echo "Copying data patches..."
-    cp --recursive --force /app/share/rbdoom3bfg/base/* --target-directory ${rbdoom3bfg_base_dir}
-    touch ${rbdoom3bfg_data_dir}/.setup
+    echo "New version detected, copying data patches..."
+    cp --recursive --force --verbose /app/share/rbdoom3bfg/base/* --target-directory ${rbdoom3bfg_base_dir} | tee \
+        >(zenity --progress --pulsate --auto-close --no-cancel --width=300 --title "New version detected" --text "Patching base data files...")
+    echo ${rbdoom3bfg_app_commit} > ${rbdoom3bfg_setup_commit_file}
     echo "Data patches copied"
+else
+    echo "The current version matches: skip data patching"
 fi
 
 # Run game engine
