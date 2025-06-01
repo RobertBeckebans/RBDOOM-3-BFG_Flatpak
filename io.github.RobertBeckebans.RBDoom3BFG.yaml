@@ -130,3 +130,4 @@ modules:
         path: rbdoom3bfg.sh
     build-commands:
       - install -Dm 755 rbdoom3bfg.sh -t /app/bin
+      - desktop-file-edit --set-key=Exec --set-value=/app/bin/rbdoom3bfg.sh /app/share/applications/${FLATPAK_ID}.desktop
