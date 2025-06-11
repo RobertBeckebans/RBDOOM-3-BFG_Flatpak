@@ -75,7 +75,7 @@ modules:
       - type: git
         url: https://github.com/RobertBeckebans/RBDOOM-3-BFG
         #branch: flatpak
-        commit: c1721f01531bf7cb7c048053d0ae2c2f6beb101a
+        commit: 5d6216b93a3cd194797271e17533bda81b57f142
       - type: patch
         path: shader-compiler.patch
       - type: patch
