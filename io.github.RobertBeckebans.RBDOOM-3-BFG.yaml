@@ -1,4 +1,4 @@
-app-id: io.github.RobertBeckebans.RBDoom3BFG
+app-id: io.github.RobertBeckebans.RBDOOM-3-BFG
 runtime: org.freedesktop.Platform
 runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
@@ -75,7 +75,7 @@ modules:
       - type: git
         url: https://github.com/RobertBeckebans/RBDOOM-3-BFG
         #branch: flatpak
-        commit: 5d6216b93a3cd194797271e17533bda81b57f142
+        commit: 3bcacdd19eebca8801af5fddcc9f78b505f3cc43
       - type: patch
         path: shader-compiler.patch
       - type: patch
